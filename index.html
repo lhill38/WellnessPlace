@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wellness Place Australia — Sign in</title>
+  <meta name="description" content="Log in to your Wellness Place Australia account to organise and manage your mental health counselling and support." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f7faf9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --brand: #0f766e; /* teal */
+      --brand-600:#0d9488;
+      --focus: #2563eb;
+      --error:#b91c1c;
+      --ring: 0 0 0 4px rgba(37, 99, 235, 0.25);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1210;
+        --card:#0f1a18;
+        --text:#f8fafc;
+        --muted:#93a3a8;
+        --brand:#2dd4bf;
+        --brand-600:#14b8a6;
+        --focus:#60a5fa;
+        --error:#ef4444;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(45,212,191,0.08), transparent 60%),
+                  radial-gradient(1000px 600px at 90% 20%, rgba(14,165,233,0.08), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    .page{
+      display:grid; grid-template-columns: 1fr; min-height:100dvh;
+    }
+    .hero{display:none}
+    @media (min-width: 960px){
+      .page{grid-template-columns: 6fr 5fr}
+      .hero{display:block; position:relative; overflow:hidden}
+      $1
+      .hero-img{position:relative; overflow:hidden; border-radius:24px; margin-bottom:2rem; box-shadow:0 20px 60px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08)}
+      .hero-img img{display:block; width:100%; height:320px; object-fit:cover}
+      .hero-caption{position:absolute; left:1rem; bottom:1rem; padding:.5rem .875rem; border-radius:999px; font-weight:700; background:rgba(15,23,42,.65); color:#fff; backdrop-filter:saturate(140%) blur(8px)}
+      @media (prefers-color-scheme: dark){ .hero-caption{background:rgba(255,255,255,.12)} }
+      .ribbon{
+        position:absolute; inset:0; background: radial-gradient(1200px 800px at 10% 90%, rgba(20,184,166,0.25), transparent 60%),
+                                   radial-gradient(600px 400px at 80% 10%, rgba(14,165,233,0.18), transparent 60%);
+        filter: blur(20px); opacity:0.9;
+      }
+      .hero h1{margin:0 0 1rem; font-size: clamp(2rem, 3vw, 3rem); font-weight:700;}
+      .hero p{max-width: 52ch; color:var(--muted); font-size: clamp(1rem, 1.3vw, 1.125rem)}
+      .badges{margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap}
+      .badge{background: rgba(255,255,255,0.7); color:#0f172a; border-radius:999px; padding:.5rem .875rem; font-weight:600; box-shadow:0 10px 25px rgba(0,0,0,.05)}
+      @media (prefers-color-scheme: dark){
+        .badge{background: rgba(255,255,255,0.08); color:#e2e8f0}
+      }
+    }
+    .auth{
+      display:flex; align-items:center; justify-content:center; padding: clamp(1rem, 3vw, 3rem);
+    }
+    .card{
+      width:100%; max-width: 480px; background:var(--card); border-radius:24px; padding:clamp(1.25rem,3.5vw,2rem);
+      box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.05);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .brand{display:flex; align-items:center; gap:.75rem; margin-bottom:1rem}
+    .logo{width:42px; height:42px; border-radius:12px; background:conic-gradient(from 180deg, var(--brand), var(--brand-600), var(--brand)); box-shadow: inset 0 0 0 2px rgba(255,255,255,.6)}
+    .brand h2{margin:0; font-weight:800; letter-spacing:.2px}
+    .subtitle{margin:.25rem 0 1.25rem; color:var(--muted)}
+
+    form{margin-top:1rem}
+    label{display:block; font-weight:600; margin-bottom:.4rem}
+    .field{margin-bottom:1rem}
+    input[type="email"], input[type="password"]{
+      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid rgba(15,23,42,.15); background:transparent; color:var(--text);
+      outline:none; font-size:1rem;
+    }
+    input:focus{border-color:var(--focus); box-shadow: var(--ring)}
+
+    .password-wrap{position:relative}
+    .toggle-btn{
+      position:absolute; right:.5rem; top:50%; transform:translateY(-50%); background:transparent; border:none; cursor:pointer; font: inherit;
+      padding:.5rem; border-radius:8px; color:var(--muted);
+    }
+    .toggle-btn:focus-visible{outline: none; box-shadow: var(--ring)}
+
+    .row{display:flex; gap:.75rem; align-items:center; justify-content:space-between; margin:.5rem 0 1rem}
+    .row label.inline{font-weight:500; display:inline-flex; align-items:center; gap:.5rem; color:var(--muted)}
+
+    .btn{display:inline-flex; align-items:center; justify-content:center; width:100%; padding:.9rem 1rem; border-radius:12px; border:none; cursor:pointer; font-weight:700; font-size:1rem; background:linear-gradient(180deg, var(--brand-600), var(--brand)); color:#fff}
+    .btn:hover{filter:brightness(1.05)}
+    .btn:focus-visible{outline:none; box-shadow: var(--ring)}
+
+    .or{display:flex; align-items:center; gap:.75rem; margin:1rem 0}
+    .or::before, .or::after{content:""; flex:1; height:1px; background: rgba(15,23,42,.1)}
+
+    .alt{display:grid; gap:.75rem}
+    .alt .ghost{background:transparent; border:1px solid rgba(15,23,42,.15); color:var(--text)}
+
+    .helper{font-size:.9rem; color:var(--muted); margin-top:1rem}
+    .helper a{color:var(--brand-600); text-decoration:none}
+    .helper a:hover{text-decoration:underline}
+
+    .alert{border-radius:14px; background: #fff3f3; color: #7f1d1d; padding:.75rem 1rem; border:1px solid rgba(185,28,28,.2); margin-bottom:1rem}
+    @media (prefers-color-scheme: dark){
+      .alert{background: rgba(239,68,68,.08); color:#fecaca; border-color: rgba(239,68,68,.2)}
+    }
+
+    footer{max-width:480px; margin:1rem auto 0; padding:0 1rem 2rem; color:var(--muted); font-size:.9rem}
+    footer nav{display:flex; flex-wrap:wrap; gap:.75rem}
+    footer a{color:var(--muted); text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    /* Accessibility helpers */
+    .visually-hidden{position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px, 1px, 1px, 1px); white-space:nowrap}
+  </style>
+</head>
+<body>
+  <!-- Crisis support banner (Australia) -->
+  <div class="visually-hidden" role="region" aria-label="Crisis Support">If you or someone you know is in immediate danger, call 000. Lifeline: 13 11 14 • Beyond Blue: 1300 22 4636</div>
+
+  <main class="page">
+    <section class="hero" aria-hidden="true">
+      <div class="ribbon" aria-hidden="true"></div>
+      $1
+        <div class="hero-img">
+          <img src=\"https://images.unsplash.com/photo-1523978591478-c753949ff840?q=80&w=1600&auto=format&fit=crop\" alt="A group of people smiling and talking together" loading="lazy" />
+          <div class="hero-caption">Your space to feel supported</div>
+        </div>
+        <h1>Compassionate counselling, at your pace.</h1>
+        <p>Log in to manage appointments, securely message your clinician, access resources, and keep your mental health journey organised — all in one place.</p>
+        <div class="badges">
+          <span class="badge">Not‑for‑profit</span>
+          <span class="badge">Privacy‑first</span>
+          <span class="badge">Australian‑owned</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth">
+      <div class="card" role="region" aria-label="Sign in form">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <h2>Wellness Place Australia</h2>
+        </div>
+        <p class="subtitle">Log in to organise and maintain your counselling, appointments, and support.</p>
+
+        <div class="alert" aria-live="polite">
+          In an emergency, call <strong>000</strong>. For immediate support: Lifeline <strong>13 11 14</strong>, Beyond Blue <strong>1300 22 4636</strong>.
+        </div>
+
+        <form action="/sessions" method="post" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true" placeholder="you@example.org" />
+          </div>
+
+          <div class="field password-wrap">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" minlength="8" placeholder="••••••••" />
+            <button type="button" class="toggle-btn" aria-pressed="false" aria-controls="password" id="togglePassword" title="Show password">👁️</button>
+          </div>
+
+          <div class="row">
+            <label class="inline"><input type="checkbox" name="remember" value="1" /> Remember me</label>
+            <a href="#" class="link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn" aria-label="Sign in to your account">Sign in</button>
+
+          <div class="or" aria-hidden="true">Or</div>
+
+          <div class="alt">
+            <button type="button" class="btn ghost" aria-label="Continue with email link">Send me a magic link</button>
+            <button type="button" class="btn ghost" aria-label="Continue with Google">Continue with Google</button>
+          </div>
+
+          <p class="helper">New here? <a href="#">Create an account</a>. By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav aria-label="Footer">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Contact</a>
+    </nav>
+    <p style="margin-top:.5rem">© <span id="year"></span> Wellness Place Australia — ABN 00 000 000 000 • Not‑for‑profit mental health service.
+    </p>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Password visibility toggle
+    (function(){
+      const btn = document.getElementById('togglePassword');
+      const input = document.getElementById('password');
+      if(!btn || !input) return;
+      btn.addEventListener('click', () => {
+        const isPassword = input.getAttribute('type') === 'password';
+        input.setAttribute('type', isPassword ? 'text' : 'password');
+        btn.setAttribute('aria-pressed', String(isPassword));
+        btn.title = isPassword ? 'Hide password' : 'Show password';
+      });
+    })();
+
+    // Basic client-side validation feedback
+    (function(){
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+        const email = document.getElementById('email');
+        const pass = document.getElementById('password');
+        if(!email.value || !email.checkValidity() || !pass.value || pass.value.length < 8){
+          e.preventDefault();
+          alert('Please enter a valid email and a password of at least 8 characters.');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
