@@ -14,7 +14,7 @@
       --card: #ffffff;
       --text: #0f172a;
       --muted: #475569;
-      --brand: #0f766e; /* teal */
+      --brand: #0f766e;
       --brand-600:#0d9488;
       --focus: #2563eb;
       --error:#b91c1c;
@@ -35,108 +35,56 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background: radial-gradient(1200px 800px at 10% 10%, rgba(45,212,191,0.08), transparent 60%),
                   radial-gradient(1000px 600px at 90% 20%, rgba(14,165,233,0.08), transparent 60%),
                   var(--bg);
       color:var(--text);
       line-height:1.5;
     }
-    .page{
-      display:grid; grid-template-columns: 1fr; min-height:100dvh;
+    .page{display:grid; grid-template-columns: 1fr; min-height:100dvh;}
+    .hero{display:block; position:relative; overflow:hidden}
+    .hero-img{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      margin-bottom:2rem;
+      box-shadow:0 20px 60px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08);
+      background: linear-gradient(135deg, rgba(45,212,191,.25), rgba(14,165,233,.25));
+      min-height:240px;
+      display:flex;
+      align-items:flex-end;
     }
-    .hero{display:none}
-    @media (min-width: 960px){
-      .page{grid-template-columns: 6fr 5fr}
-      .hero{display:block; position:relative; overflow:hidden}
-      .hero-img{position:relative; overflow:hidden; border-radius:24px; margin-bottom:2rem; box-shadow:0 20px 60px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08)}
-      .hero-img img{display:block; width:100%; height:320px; object-fit:cover}
-      .hero-caption{position:absolute; left:1rem; bottom:1rem; padding:.5rem .875rem; border-radius:999px; font-weight:700; background:rgba(15,23,42,.65); color:#fff; backdrop-filter:saturate(140%) blur(8px)}
-      @media (prefers-color-scheme: dark){ .hero-caption{background:rgba(255,255,255,.12)} }
-      .ribbon{
-        position:absolute; inset:0; background: radial-gradient(1200px 800px at 10% 90%, rgba(20,184,166,0.25), transparent 60%),
-                                   radial-gradient(600px 400px at 80% 10%, rgba(14,165,233,0.18), transparent 60%);
-        filter: blur(20px); opacity:0.9;
-      }
-      .hero h1{margin:0 0 1rem; font-size: clamp(2rem, 3vw, 3rem); font-weight:700;}
-      .hero p{max-width: 52ch; color:var(--muted); font-size: clamp(1rem, 1.3vw, 1.125rem)}
-      .badges{margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap}
-      .badge{background: rgba(255,255,255,0.7); color:#0f172a; border-radius:999px; padding:.5rem .875rem; font-weight:600; box-shadow:0 10px 25px rgba(0,0,0,.05)}
-      @media (prefers-color-scheme: dark){
-        .badge{background: rgba(255,255,255,0.08); color:#e2e8f0}
-      }
+    .hero-caption{
+      margin:1rem;
+      padding:.5rem .875rem;
+      border-radius:999px;
+      font-weight:700;
+      background:rgba(15,23,42,.65);
+      color:#fff;
+      backdrop-filter:saturate(140%) blur(8px);
     }
-    .auth{
-      display:flex; align-items:center; justify-content:center; padding: clamp(1rem, 3vw, 3rem);
-    }
+    @media (prefers-color-scheme: dark){ .hero-caption{background:rgba(255,255,255,.12)} }
+
+    .auth{display:flex; align-items:center; justify-content:center; padding: clamp(1rem, 3vw, 3rem);}
     .card{
       width:100%; max-width: 480px; background:var(--card); border-radius:24px; padding:clamp(1.25rem,3.5vw,2rem);
       box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.05);
       border: 1px solid rgba(15, 23, 42, 0.06);
     }
     .brand{display:flex; align-items:center; gap:.75rem; margin-bottom:1rem}
-    .logo{width:42px; height:42px; border-radius:12px; background:conic-gradient(from 180deg, var(--brand), var(--brand-600), var(--brand)); box-shadow: inset 0 0 0 2px rgba(255,255,255,.6)}
-    .brand h2{margin:0; font-weight:800; letter-spacing:.2px}
+    .logo{width:42px; height:42px; border-radius:12px; background:conic-gradient(from 180deg, var(--brand), var(--brand-600), var(--brand));}
+    .brand h2{margin:0; font-weight:800;}
     .subtitle{margin:.25rem 0 1.25rem; color:var(--muted)}
-
-    form{margin-top:1rem}
-    label{display:block; font-weight:600; margin-bottom:.4rem}
-    .field{margin-bottom:1rem}
-    input[type="email"], input[type="password"]{
-      width:100%; padding:.85rem 1rem; border-radius:12px; border:1px solid rgba(15,23,42,.15); background:transparent; color:var(--text);
-      outline:none; font-size:1rem;
-    }
-    input:focus{border-color:var(--focus); box-shadow: var(--ring)}
-
-    .password-wrap{position:relative}
-    .toggle-btn{
-      position:absolute; right:.5rem; top:50%; transform:translateY(-50%); background:transparent; border:none; cursor:pointer; font: inherit;
-      padding:.5rem; border-radius:8px; color:var(--muted);
-    }
-    .toggle-btn:focus-visible{outline: none; box-shadow: var(--ring)}
-
-    .row{display:flex; gap:.75rem; align-items:center; justify-content:space-between; margin:.5rem 0 1rem}
-    .row label.inline{font-weight:500; display:inline-flex; align-items:center; gap:.5rem; color:var(--muted)}
-
-    .btn{display:inline-flex; align-items:center; justify-content:center; width:100%; padding:.9rem 1rem; border-radius:12px; border:none; cursor:pointer; font-weight:700; font-size:1rem; background:linear-gradient(180deg, var(--brand-600), var(--brand)); color:#fff}
-    .btn:hover{filter:brightness(1.05)}
-    .btn:focus-visible{outline:none; box-shadow: var(--ring)}
-
-    .or{display:flex; align-items:center; gap:.75rem; margin:1rem 0}
-    .or::before, .or::after{content:""; flex:1; height:1px; background: rgba(15,23,42,.1)}
-
-    .alt{display:grid; gap:.75rem}
-    .alt .ghost{background:transparent; border:1px solid rgba(15,23,42,.15); color:var(--text)}
-
-    .helper{font-size:.9rem; color:var(--muted); margin-top:1rem}
-    .helper a{color:var(--brand-600); text-decoration:none}
-    .helper a:hover{text-decoration:underline}
-
-    .alert{border-radius:14px; background: #fff3f3; color: #7f1d1d; padding:.75rem 1rem; border:1px solid rgba(185,28,28,.2); margin-bottom:1rem}
-    @media (prefers-color-scheme: dark){
-      .alert{background: rgba(239,68,68,.08); color:#fecaca; border-color: rgba(239,68,68,.2)}
-    }
-
-    footer{max-width:480px; margin:1rem auto 0; padding:0 1rem 2rem; color:var(--muted); font-size:.9rem}
-    footer nav{display:flex; flex-wrap:wrap; gap:.75rem}
-    footer a{color:var(--muted); text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    /* Accessibility helpers */
-    .visually-hidden{position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px, 1px, 1px, 1px); white-space:nowrap}
-  .hero-img.fallback{background: linear-gradient(180deg, rgba(45,212,191,.15), rgba(14,165,233,.12)); min-height:240px;}
-</style>
+  </style>
 </head>
 <body>
-  <!-- Crisis support banner (Australia) -->
   <div class="visually-hidden" role="region" aria-label="Crisis Support">If you or someone you know is in immediate danger, call 000. Lifeline: 13 11 14 • Beyond Blue: 1300 22 4636</div>
 
   <main class="page">
     <section class="hero" aria-hidden="true">
-      <div class="ribbon" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-img">
-          <img src="https://plus.unsplash.com/premium_photo-1683133968281-6dd51e0c3e86?q=80&w=1600&auto=format&fit=crop" alt="People in a supportive counselling session" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
           <div class="hero-caption">Your space to feel supported</div>
         </div>
         <h1>Compassionate counselling, at your pace.</h1>
@@ -164,13 +112,13 @@
         <form action="/sessions" method="post" novalidate>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true" placeholder="you@example.org" />
+            <input id="email" name="email" type="email" required placeholder="you@example.org" />
           </div>
 
           <div class="field password-wrap">
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" minlength="8" placeholder="••••••••" />
-            <button type="button" class="toggle-btn" aria-pressed="false" aria-controls="password" id="togglePassword" title="Show password">👁️</button>
+            <input id="password" name="password" type="password" required minlength="8" placeholder="••••••••" />
+            <button type="button" class="toggle-btn" id="togglePassword" title="Show password">👁️</button>
           </div>
 
           <div class="row">
@@ -178,13 +126,13 @@
             <a href="#" class="link">Forgot password?</a>
           </div>
 
-          <button type="submit" class="btn" aria-label="Sign in to your account">Sign in</button>
+          <button type="submit" class="btn">Sign in</button>
 
           <div class="or" aria-hidden="true">Or</div>
 
           <div class="alt">
-            <button type="button" class="btn ghost" aria-label="Continue with email link">Email me a one-time sign-in link</button>
-            <button type="button" class="btn ghost" aria-label="Continue with Google">Continue with Google</button>
+            <button type="button" class="btn ghost">Email me a one-time sign-in link</button>
+            <button type="button" class="btn ghost">Continue with Google</button>
           </div>
 
           <p class="helper">New here? <a href="#">Create an account</a>. By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
@@ -201,39 +149,20 @@
       <a href="#">Accessibility</a>
       <a href="#">Contact</a>
     </nav>
-    <p style="margin-top:.5rem">© <span id="year"></span> Wellness Place Australia — ABN 00 000 000 000 • Not-for-profit mental health service.
-    </p>
+    <p>© <span id="year"></span> Wellness Place Australia — Not-for-profit mental health service.</p>
   </footer>
 
   <script>
-    // Current year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Password visibility toggle
-    (function(){
-      const btn = document.getElementById('togglePassword');
-      const input = document.getElementById('password');
-      if(!btn || !input) return;
+    const btn = document.getElementById('togglePassword');
+    const input = document.getElementById('password');
+    if(btn && input){
       btn.addEventListener('click', () => {
         const isPassword = input.getAttribute('type') === 'password';
         input.setAttribute('type', isPassword ? 'text' : 'password');
-        btn.setAttribute('aria-pressed', String(isPassword));
         btn.title = isPassword ? 'Hide password' : 'Show password';
       });
-    })();
-
-    // Basic client-side validation feedback
-    (function(){
-      const form = document.querySelector('form');
-      form.addEventListener('submit', (e) => {
-        const email = document.getElementById('email');
-        const pass = document.getElementById('password');
-        if(!email.value || !email.checkValidity() || !pass.value || pass.value.length < 8){
-          e.preventDefault();
-          alert('Please enter a valid email and a password of at least 8 characters.');
-        }
-      });
-    })();
+    }
   </script>
 </body>
 </html>
