@@ -124,7 +124,8 @@
 
     /* Accessibility helpers */
     .visually-hidden{position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px, 1px, 1px, 1px); white-space:nowrap}
-  </style>
+  .hero-img.fallback{background: linear-gradient(180deg, rgba(45,212,191,.15), rgba(14,165,233,.12)); min-height:240px;}
+</style>
 </head>
 <body>
   <!-- Crisis support banner (Australia) -->
@@ -133,17 +134,18 @@
   <main class="page">
     <section class="hero" aria-hidden="true">
       <div class="ribbon" aria-hidden="true"></div>
-      $1
+      <div class="hero-inner">
         <div class="hero-img">
-          <img src="https://images.unsplash.com/photo-1520975918318-4da1a82a81d3?ixlib=rb-4.0.3&q=80&w=1600&auto=format&fit=crop" alt="People in a supportive counselling session" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
+         <img src="https://images.unsplash.com/photo-1520975918318-4da1a82a81d3?ixlib=rb-4.0.3&q=80&w=1600&auto=format&fit=crop" alt="People in a supportive counselling session" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
+
           <div class="hero-caption">Your space to feel supported</div>
         </div>
         <h1>Compassionate counselling, at your pace.</h1>
         <p>Log in to manage appointments, securely message your clinician, access resources, and keep your mental health journey organised — all in one place.</p>
         <div class="badges">
-          <span class="badge">Not‑for‑profit</span>
-          <span class="badge">Privacy‑first</span>
-          <span class="badge">Australian‑owned</span>
+          <span class="badge">Not-for-profit</span>
+          <span class="badge">Privacy-first</span>
+          <span class="badge">Australian-owned</span>
         </div>
       </div>
     </section>
@@ -182,7 +184,7 @@
           <div class="or" aria-hidden="true">Or</div>
 
           <div class="alt">
-            <button type="button" class="btn ghost" aria-label="Continue with email link">Send me a magic link</button>
+            <button type="button" class="btn ghost" aria-label="Continue with email link">Email me a one-time sign-in link</button>
             <button type="button" class="btn ghost" aria-label="Continue with Google">Continue with Google</button>
           </div>
 
@@ -200,7 +202,7 @@
       <a href="#">Accessibility</a>
       <a href="#">Contact</a>
     </nav>
-    <p style="margin-top:.5rem">© <span id="year"></span> Wellness Place Australia — ABN 00 000 000 000 • Not‑for‑profit mental health service.
+    <p style="margin-top:.5rem">© <span id="year"></span> Wellness Place Australia — ABN 00 000 000 000 • Not-for-profit mental health service.
     </p>
   </footer>
 
