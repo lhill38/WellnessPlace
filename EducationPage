@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Phishing Simulation Debrief — Wellness Place Australia</title>
+    <meta name="description" content="This was a simulated phishing attack. Learn how to identify and report real threats."/>
+    
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    
+    <style type="text/css">
+        :root{
+            --bg: #f7faf9;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --brand: #0f766e;
+            --brand-600:#0d9488;
+            --focus: #2563eb;
+            --error:#b91c1c;
+            --ring: 0 0 0 4px rgba(37, 99, 235, 0.25);
+        }
+        @media (prefers-color-scheme: dark){
+            :root{
+                --bg:#0b1210;
+                --card:#0f1a18;
+                --text:#f8fafc;
+                --muted:#93a3a8;
+                --brand:#2dd4bf;
+                --brand-600:#14b8a6;
+                --focus:#60a5fa;
+                --error:#ef4444;
+            }
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            background: radial-gradient(1200px 800px at 10% 10%, rgba(45,212,191,0.08), transparent 60%),
+                        radial-gradient(1000px 600px at 90% 20%, rgba(14,165,233,0.08), transparent 60%),
+                        var(--bg);
+            color:var(--text);
+            line-height:1.6;
+        }
+        .page{display:grid; grid-template-columns: 1fr; min-height:100dvh;}
+        .content-area{display:flex; align-items:center; justify-content:center; padding: clamp(1rem, 3vw, 3rem); text-align:center;}
+        .card{
+            width:100%; max-width: 720px; background:var(--card); border-radius:24px; padding:clamp(1.5rem,3.5vw,3rem);
+            box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.05);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+        }
+        .brand{display:flex; align-items:center; justify-content:center; gap:.75rem; margin-bottom:1rem}
+        .logo{width:42px; height:42px; border-radius:12px; background:conic-gradient(from 180deg, var(--brand), var(--brand-600), var(--brand));}
+        .brand h2{margin:0; font-weight:800; font-size: 1.5rem;}
+        
+        .success-icon {
+            font-size: 3rem;
+            color: var(--error); /* Using error color to highlight the 'hook' */
+            margin-bottom: 1rem;
+        }
+        h1 {
+            color: var(--error);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .training-section {
+            text-align: left;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(15, 23, 42, 0.1);
+        }
+        .training-section h3 {
+            color: var(--brand);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .training-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .training-section li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .training-section li::before {
+            content: '🚨';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--card);
+            background-color: var(--brand);
+            border: 2px solid var(--brand);
+            transition: all 0.2s ease;
+            margin-top: 1.5rem;
+        }
+        .btn:hover {
+            background-color: var(--brand-600);
+            border-color: var(--brand-600);
+        }
+
+        /* Footer styles to match the original */
+        footer {
+            padding: 1rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+        footer nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.2s;
+        }
+        footer nav a:hover {
+            color: var(--brand);
+        }
+    </style>
+</head>
+<body>
+
+<main class="page">
+    <section class="content-area">
+        <div class="card" role="region" aria-label="Phishing Training Message">
+            <div class="brand">
+                <div aria-hidden="true" class="logo"></div>
+                <h2>Wellness Place Australia</h2>
+            </div>
+            
+            <div class="success-icon">🎣</div>
+
+            <h1>You Got Hooked!</h1>
+            <p class="subtitle">This was a **simulated phishing attack** as part of our security training.</p>
+
+            <p>Don't worry, your credentials were not compromised. However, clicking the link or entering your details on a real phishing page could put your account and company data at risk. **This exercise is a valuable learning experience.**</p>
+            
+            <div class="training-section">
+                <h3>What Just Happened?</h3>
+                <p>The email you received and the page you just visited were designed to look legitimate and pressure you into logging in. By submitting the form, you demonstrated that you **could have given away your real login credentials** to an attacker.</p>
+                
+                <h3>Training Guidelines: How to Spot a Phish</h3>
+                <ul>
+                    <li>**Check the Sender's Email:** Is the address slightly wrong? (e.g., `wellnesplace@gmail.com` instead of `support@wellnessplaceaustralia.com.au`).</li>
+                    <li>**Inspect the Link/URL:** Before clicking, **hover your mouse** over the link. Does the domain name look suspicious or incorrect? (e.g., `wellnessplace.com-sign-in.net`).</li>
+                    <li>**Look for Urgency/Threats:** Phishing emails often use high-pressure language ("Account Suspended," "Immediate Action Required") to bypass critical thinking. Real companies rarely demand immediate, unverified action.</li>
+                    <li>**Report Suspicious Emails:** If an email feels off, **do not click anything.** Instead, forward it to our IT Security Team (e.g., `security@yourcompany.com`) or use your organisation's **"Report Phishing" button**.</li>
+                </ul>
+            </div>
+            
+            <a href="https://yourcompany.internal/security-training" class="btn">Start Your Full Security Training</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <nav aria-label="Footer"><a href="#">About</a> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Contact IT Support</a></nav>
+    <p>© Wellness Place Australia — Security Awareness Initiative</p>
+</footer>
+
+</body>
+</html>
